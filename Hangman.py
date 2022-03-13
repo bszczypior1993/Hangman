@@ -4,7 +4,7 @@ from xml.dom import ValidationErr
 
 # picks a password out of the list:
 def pick_password():
-    wordlist = ['cebula', 'doggie', 'hagen', 'bigbeautifulcock', 'stopbarking', 'eatseed']
+    wordlist = ['cebula', 'doggie', 'badger', 'catchfish', 'stopbarking', 'eatseed']
     word = random.choice(wordlist)
     return word.upper()
 
@@ -19,12 +19,7 @@ def play_hangman(password):
     guessed = False
     attempts = 6
 
-    print("""
-    H A N G M A N
-    Welcome to Hangman. 
-    Your job is to guess the password - you can guess single letters one by one, or the whole password at once. You will have 6 attempts. 
-    The password might consist of more than one word - if that's the case, there will be no spaces between the words.
-    Good luck!!!""")
+  
     
     time.sleep(1)
     print(f"Password: {dashed_password}")
@@ -70,10 +65,16 @@ def play_hangman(password):
         print(f"Good job! {password} is the correct password! 🥳🥳🥳")
         time.sleep(1)
     else:
-        print(f"Sorry, you ran out of lives. You're hung. 😏 The password was {password}")
+        print(f"Sorry, you ran out of lives. You lose. 😢😢😢 The password was {password}")
         time.sleep(1)
 
 def main():
+    print("""
+        H A N G M A N
+        Welcome to Hangman. 
+        Your job is to guess the password - you can guess single letters one by one, or the whole password at once. You will have 6 attempts. 
+        The password might consist of more than one word - if that's the case, there will be no spaces between the words.
+        Good luck!!!""")
     password = pick_password()
     play_hangman(password)
     while input("Play again? Y/N: ").upper() == "Y":
